@@ -12,4 +12,4 @@ url: 'https://www.bi0s.in'
 
 - Completed my implementation of the malloc() function (Malloc Labs) with an accuracy of 91%.
 
-- View all my previous work [here](https://drive.google.com/drive/folders/1e8rnyb-r07s6Ss8QInvjiLU4rhJAYTCZ?usp=sharing).
+- View all my previous work [here](https://github.com/n1ght-k1ng/Binary-Exploitation).
