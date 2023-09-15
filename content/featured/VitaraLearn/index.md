@@ -1,17 +1,18 @@
 ---
 date: '1'
-title: 'Vitara Learn'
+title: 'm1dn1ght-campa1gns'
 cover: 'vitara.PNG'
 github: 'https://github.com/n1ght-k1ng/VitaraLearn'
 external: 'https://vitaralearn.netlify.app'
 
 tech:
-  - videoJS
-  - HTML  
-  - Javascript
-  - CSS
+  - Ethereum
+  - Solidity
+  - Nextjs
+  - Ganache Testing
 
 showInProjects: true
 ---
 
-A Beginners' Data Structures and Algorithms Course packed with Video tutorials on Array , LinkedLists , Stacks , Queues and Trees followed by quizes after each respective module.
+A decentralized crowdfunding platform developed using Solidity and NextJS, allowing individuals to raise funds for their projects through smart contracts on the blockchain.
+

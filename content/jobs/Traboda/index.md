@@ -1,6 +1,6 @@
 ---
 date: '2020-07-30'
-title: 'Content Creator'
+title: 'Cyber Security Trainee '
 company: 'Traboda CyberLabs'
 range: 'July 2021 - December 2021'
 url: 'https://app.traboda.com/'
