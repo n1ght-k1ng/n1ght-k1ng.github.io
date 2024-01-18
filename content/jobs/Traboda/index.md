@@ -1,13 +1,12 @@
 ---
 date: '2020-07-30'
-title: 'Cyber Security Trainee '
+title: 'Cyber Security Trainer '
 company: 'Traboda CyberLabs'
 range: 'July 2021 - December 2021'
 url: 'https://app.traboda.com/'
 ---
 
-- Developed beginner's learning content for Traboda Academy in the field of binary exploitation.
-
-- Covered many basics of Binary Exploitation like *x86 assembly* , *buffer overflows* , *socket programming* and *ret2win*. 
+- Designed ***6+ novel CTF challenges*** and Conducted live tutorials on Binary Exploitation with ***3000+ students*** and authored Technical Content Modules on binary exploitation which has ***40k+ views***.
+- Oversaw social media and community support drawing registrations from over ***17,000 students*** across India
 
 - [Binary Exploration](https://app.traboda.com/academy/intro-to-binary-exploitation)

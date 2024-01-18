@@ -1,9 +1,9 @@
 ---
 date: '1'
-title: 'm1dn1ght-campa1gns'
+title: 'm1dn1ght-campa1gn'
 cover: 'vitara.PNG'
-github: 'https://github.com/n1ght-k1ng/VitaraLearn'
-external: 'https://vitaralearn.netlify.app'
+github: 'https://github.com/n1ght-k1ng/Midnight-Campaign'
+external: 'https://midn1ght-campa1gn.netlify.app/'
 
 tech:
   - Ethereum

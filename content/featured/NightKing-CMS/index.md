@@ -12,7 +12,6 @@ tech:
 showInProjects: true
 ---
 
-A Full Stack Content Management System Web Application like WordPress for users to view, create ,edit and delete blog posts with many other interesting features implemented. 
+A Content Management System Web Application providing ***Role-Based Access Control*** to users to *view, create, edit and delete* blogposts with many other interesting features implemented. 
 
-The UI has been built using ANT-Design
 

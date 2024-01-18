@@ -5,8 +5,7 @@ company: 'Deciml'
 range:  'June 2023 - August 2023'
 
 ---
-- Developed an analytics feature providing valuable insights, including daily app installs, KYC success rates, daily debit amounts, and current AUM.
-
-- Created a Transaction Detail feature that offered comprehensive transaction information, enabling the CRM team to efficiently address consumer inquiries.
-
-- Implemented a feature supporting multiple portfolios and providing monthly details for each user's portfolios, along with integrating additional user data for a richer user experience
+- Project -**Deciml Admin Panel**. Tech Stack - TypeScript , Google Cloud Functions , FireStore , NodeJS , MaterialUI.
+- Created a **Transaction Detail** portal that provides comprehensive details about a client transaction reducing manual data retrieval time by **75%** and enhanced client satisfaction through instant access to critical financial insights.
+- Utilised **FireStore Analytics** to develop a feature that focuses on **generating Real Time Analytics**, including Daily App installs, KYC Success Rates, Daily Debit Amounts, and Current AUM.
+- Upgraded the **User Portfolio Page** to support multiple fund types achieving a **30% reduction in API latency** and improving data rendering speed.

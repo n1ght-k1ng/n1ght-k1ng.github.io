@@ -10,7 +10,6 @@ tech:
 showInProjects: true
 ---
 
-A dynamic storage allocator for C programs explicitly implements the functions malloc(),calloc() and realloc(). 
-
+A dynamic storage allocator for C programs explicitly implements the ***malloc(),calloc() and realloc()*** functions in C. 
 
 Accuracy - 91%
