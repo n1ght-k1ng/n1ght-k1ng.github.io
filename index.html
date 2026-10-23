@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nikhil Reddy · Backend Engineer</title>
+  <meta name="description" content="D Nikhil Reddy, backend engineer building production distributed systems in Node.js and TypeScript: microservices, event-driven pipelines and AWS infrastructure.">
+  <meta name="google-site-verification" content="DCl7VAf9tcz6eD9gb67NfkNnJ1PKRNcg8qQiwpbx9Lk">
+  <link rel="canonical" href="https://n1ght-k1ng.github.io/">
+  <meta property="og:title" content="Nikhil Reddy · Backend Engineer">
+  <meta property="og:description" content="Node.js / TypeScript microservices, event-driven systems and AWS infrastructure. Ex-Team bi0s CTF player.">
+  <meta property="og:url" content="https://n1ght-k1ng.github.io/">
+  <meta property="og:image" content="https://n1ght-k1ng.github.io/assets/me.jpg">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230b0f14'/><text x='16' y='22' font-family='monospace' font-size='16' font-weight='700' text-anchor='middle' fill='%2334d399'>nk</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f8fa; --surface: #ffffff; --text: #111827; --muted: #5b6474;
+      --line: #e3e6eb; --accent: #047857; --accent-soft: #e6f4ee; --chip: #f1f3f6;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #0b0f14; --surface: #121821; --text: #e6ebf2; --muted: #93a0b2;
+        --line: #1f2a37; --accent: #34d399; --accent-soft: #0f2a22; --chip: #18212c;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #0b0f14; --surface: #121821; --text: #e6ebf2; --muted: #93a0b2;
+      --line: #1f2a37; --accent: #34d399; --accent-soft: #0f2a22; --chip: #18212c;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text);
+      font: 16px/1.65 Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 0 16px; }
+
+    header.nav {
+      position: sticky; top: 0; z-index: 10;
+      background: color-mix(in srgb, var(--bg) 85%, transparent);
+      backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);
+    }
+    header.nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+    .brand { font-weight: 600; color: var(--text); }
+    .brand span { color: var(--accent); }
+    nav.links { display: flex; gap: 18px; align-items: center; font-size: 14px; }
+    nav.links a { color: var(--muted); }
+    nav.links a:hover { color: var(--text); text-decoration: none; }
+    #theme {
+      background: var(--chip); border: 1px solid var(--line); color: var(--text);
+      border-radius: 8px; width: 32px; height: 32px; cursor: pointer; font-size: 15px;
+    }
+    @media (max-width: 640px) { nav.links a.opt { display: none; } }
+
+    section { padding: 64px 0 8px; }
+    h2 {
+      font-size: 13px; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 20px; font-family: "JetBrains Mono", monospace;
+    }
+
+    .hero { padding-top: 72px; display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center; }
+    .hero .kicker { color: var(--accent); font-size: 14px; margin-bottom: 10px; }
+    .hero h1 { font-size: clamp(34px, 6vw, 52px); line-height: 1.1; letter-spacing: -.02em; }
+    .hero p.lead { color: var(--muted); font-size: 18px; margin: 18px 0 26px; max-width: 560px; }
+    .hero img {
+      width: 150px; height: 150px; border-radius: 20px; object-fit: cover;
+      border: 1px solid var(--line);
+    }
+    @media (max-width: 640px) { .hero { grid-template-columns: 1fr; } .hero img { width: 96px; height: 96px; order: -1; } }
+    .cta { display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px;
+      border-radius: 10px; border: 1px solid var(--line); background: var(--surface);
+      color: var(--text); font-size: 14px; font-weight: 500;
+    }
+    .btn:hover { border-color: var(--accent); text-decoration: none; }
+    .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 48px; }
+    @media (max-width: 720px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+    .stat { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+    .stat b { display: block; font-size: 22px; letter-spacing: -.01em; }
+    .stat span { color: var(--muted); font-size: 13px; }
+
+    .job { display: grid; grid-template-columns: 170px 1fr; gap: 20px; padding: 22px 0; border-top: 1px solid var(--line); }
+    .job:first-of-type { border-top: 0; padding-top: 0; }
+    .job .when { color: var(--muted); font-size: 13px; padding-top: 3px; }
+    .job h3 { font-size: 17px; }
+    .job h3 small { color: var(--muted); font-weight: 400; font-size: 15px; }
+    .job ul { margin: 10px 0 0 18px; color: var(--muted); }
+    .job li { margin: 6px 0; }
+    .job li b { color: var(--text); font-weight: 600; }
+    @media (max-width: 640px) { .job { grid-template-columns: 1fr; gap: 4px; } }
+
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
+    .card {
+      background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+      padding: 20px; display: flex; flex-direction: column; gap: 10px;
+    }
+    .card h3 { font-size: 16px; }
+    .card p { color: var(--muted); font-size: 14.5px; flex: 1; }
+    .card .meta { display: flex; gap: 14px; font-size: 13px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      font-family: "JetBrains Mono", monospace; font-size: 12px; padding: 3px 8px;
+      border-radius: 6px; background: var(--chip); color: var(--muted);
+    }
+
+    .skills { display: grid; grid-template-columns: 180px 1fr; gap: 12px 20px; }
+    .skills dt { color: var(--muted); font-size: 14px; padding-top: 3px; }
+    @media (max-width: 640px) { .skills { grid-template-columns: 1fr; gap: 4px; } .skills dd { margin-bottom: 12px; } }
+
+    .list { list-style: none; }
+    .list li { padding: 14px 0; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .list li:first-child { border-top: 0; padding-top: 0; }
+    .list .sub { color: var(--muted); font-size: 14px; }
+
+    .contact { text-align: center; padding: 72px 0 56px; }
+    .contact p { color: var(--muted); max-width: 520px; margin: 12px auto 24px; }
+    .contact .cta { justify-content: center; }
+    footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; padding: 20px 0 32px; text-align: center; }
+  </style>
+  <script>
+    try { const t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap">
+      <a class="brand mono" href="#top">n1ght<span>-</span>k1ng</a>
+      <nav class="links">
+        <a href="#experience">Experience</a>
+        <a class="opt" href="#projects">Projects</a>
+        <a class="opt" href="#security">Security</a>
+        <a href="#contact">Contact</a>
+        <button id="theme" aria-label="Toggle colour theme">◐</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap" id="top">
+    <section class="hero">
+      <div>
+        <p class="kicker mono">Hi, I'm</p>
+        <h1>D Nikhil Reddy</h1>
+        <p class="lead">
+          Backend engineer building production distributed systems in <strong>Node.js and TypeScript</strong>:
+          microservices, event-driven pipelines and AWS infrastructure. Previously a CTF player with
+          <strong>Team bi0s</strong> (#1 in India).
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="mailto:dn.reddy@hotmail.com">Email me</a>
+          <a class="btn" href="https://www.linkedin.com/in/dnikhil-reddy/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="https://github.com/n1ght-k1ng" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <img src="assets/me.jpg" alt="Photo of Nikhil Reddy" width="150" height="150">
+    </section>
+
+    <div class="stats">
+      <div class="stat"><b>32%</b><span>cloud cost cut (~$36K/yr)</span></div>
+      <div class="stat"><b>180M+</b><span>records migrated, zero downtime</span></div>
+      <div class="stat"><b>137s → 43ms</b><span>endpoint latency fix</span></div>
+      <div class="stat"><b>50K+/day</b><span>Kafka messages, 99.5% accepted</span></div>
+    </div>
+
+    <section id="experience">
+      <h2>Experience</h2>
+
+      <div class="job">
+        <div class="when mono">Oct 2025 — Present</div>
+        <div>
+          <h3>Senior Software Engineer, Backend &amp; Infrastructure <small>· TCC Concept Ltd. (Trythat.AI)</small></h3>
+          <ul>
+            <li>Founding engineer on <b>ALON</b>, an AI property-buying assistant: owned backend architecture from an empty repo to a production multi-service platform for web and mobile.</li>
+            <li>Maintain a <b>5-service NestJS monorepo</b> serving REST, WebSocket and SSE APIs, with shared Drizzle ORM libraries and Jest coverage.</li>
+            <li>Built multi-environment AWS infrastructure (<b>ECS, ALB, RDS, Terraform</b>) with zero-downtime CI/CD across 3 isolated clusters; cut cloud spend <b>32%</b>. Own production on-call on Grafana/Loki.</li>
+            <li>Designed a <b>Kafka-driven notification engine</b> with at-least-once delivery and idempotent consumers: 50K+ messages a day.</li>
+            <li>Took MySQL search from <b>504 timeouts to under a second</b> with covering indexes and query rewrites; cut dashboard p95 <b>1.9s → 140ms</b> with a two-tier Redis cache.</li>
+            <li>Shipped <b>Razorpay payments</b> with signed webhooks and staged rollout flags.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when mono">Feb 2024 — Oct 2025</div>
+        <div>
+          <h3>Software Engineer I, Backend <small>· Deciml</small></h3>
+          <ul>
+            <li>Architected a Node.js/TypeScript <b>recurring-payment engine</b> on PostgreSQL; peak batch throughput up <b>60%</b> (500 → 800 TPS).</li>
+            <li>Designed a two-tier Kafka pipeline for a <b>zero-downtime Firestore → Postgres migration</b> of 180M+ records (~600 GB), with dual writes and SHA-256 parity checks.</li>
+            <li>Cut GCP infrastructure cost <b>40%</b> (~$48K/yr) by moving high-read collections to PostgreSQL.</li>
+            <li>Shipped a <b>digital-gold</b> integration with idempotent orders and daily reconciliation: 120K+ orders, $0.5M+ GMV.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when mono">Jun 2023 — Aug 2023</div>
+        <div>
+          <h3>Software Developer Intern <small>· Deciml</small></h3>
+          <ul>
+            <li>Built an admin-panel transaction portal (TypeScript, Cloud Functions, Firestore), cutting manual data retrieval time by <b>75%</b>.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when mono">Jul 2021 — Dec 2021</div>
+        <div>
+          <h3>Cyber Security Trainer <small>· Traboda CyberLabs</small></h3>
+          <ul>
+            <li>Designed <b>6+ original CTF challenges</b> and taught binary exploitation live to <b>3000+ students</b>; authored course modules with 40K+ views.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>NightKing CMS</h3>
+          <p>A full-stack headless content management system with a separate client and API server.</p>
+          <div class="tags"><span class="tag">Next.js</span><span class="tag">Express</span><span class="tag">MongoDB</span></div>
+          <div class="meta"><a href="https://github.com/n1ght-k1ng/NightKing-CMS" target="_blank" rel="noopener">Code ↗</a><a href="https://nightking-cms.netlify.app" target="_blank" rel="noopener">Live ↗</a></div>
+        </article>
+        <article class="card">
+          <h3>Midnight Campaign</h3>
+          <p>A decentralised crowdfunding platform: campaigns and spending requests governed by a Solidity contract on Ethereum.</p>
+          <div class="tags"><span class="tag">Solidity</span><span class="tag">Ethereum</span><span class="tag">Next.js</span></div>
+          <div class="meta"><a href="https://github.com/n1ght-k1ng/Midnight-Campaign" target="_blank" rel="noopener">Code ↗</a><a href="https://midn1ght-campa1gn.netlify.app/" target="_blank" rel="noopener">Live ↗</a></div>
+        </article>
+        <article class="card">
+          <h3>Binary Exploitation</h3>
+          <p>My tracked work on stack and heap exploitation from my CTF years: exploits, write-ups and practice binaries.</p>
+          <div class="tags"><span class="tag">C</span><span class="tag">Python</span><span class="tag">pwn</span></div>
+          <div class="meta"><a href="https://github.com/n1ght-k1ng/Binary-Exploitation" target="_blank" rel="noopener">Code ↗</a></div>
+        </article>
+        <article class="card">
+          <h3>Vitara Learn</h3>
+          <p>A responsive video course page for a five-lesson data structures and algorithms course.</p>
+          <div class="tags"><span class="tag">React</span><span class="tag">Video.js</span></div>
+          <div class="meta"><a href="https://github.com/n1ght-k1ng/VitaraLearn" target="_blank" rel="noopener">Code ↗</a><a href="https://vitaralearn.netlify.app/" target="_blank" rel="noopener">Live ↗</a></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="security">
+      <h2>Security &amp; Research</h2>
+      <ul class="list">
+        <li>
+          <span><a href="https://ieeexplore.ieee.org/document/10725580" target="_blank" rel="noopener">Quantum-Safe Authentication Protocol for IIoT</a></span>
+          <span class="sub">Published · 15th ICCCNT 2024, IIT Mandi</span>
+        </li>
+        <li>
+          <span><a href="https://www.bi0s.in" target="_blank" rel="noopener">Team bi0s</a>, exploit developer</span>
+          <span class="sub">#29 worldwide, #1 in India · 2020 — 2022</span>
+        </li>
+        <li>
+          <span>BlackHat USA Student Scholar</span>
+          <span class="sub">Two-time recipient</span>
+        </li>
+        <li>
+          <span>CTF challenges: <a href="https://app.traboda.com/challenge/1077" target="_blank" rel="noopener">Breaking BOF</a>, <a href="https://app.traboda.com/challenge/1202" target="_blank" rel="noopener">FOX</a>, <a href="https://app.traboda.com/challenge/1211" target="_blank" rel="noopener">MIPSunderstanding</a></span>
+          <span class="sub">Buffer overflow, ROP, MIPS shellcode · InCTF Jr</span>
+        </li>
+        <li>
+          <span><a href="https://www.youtube.com/watch?v=yMkyHCR7fqw" target="_blank" rel="noopener">Introduction to Binary Exploitation</a></span>
+          <span class="sub">Video tutorial series</span>
+        </li>
+      </ul>
+    </section>
+
+    <section id="skills">
+      <h2>Toolbox</h2>
+      <dl class="skills">
+        <dt>Languages</dt><dd>TypeScript, JavaScript, Python, SQL, C</dd>
+        <dt>Backend</dt><dd>Node.js, NestJS, Express, REST, WebSockets, SSE, JWT / OAuth</dd>
+        <dt>Data</dt><dd>PostgreSQL, MySQL, MongoDB, Redis, MeiliSearch, Kafka, Debezium CDC</dd>
+        <dt>Cloud &amp; infra</dt><dd>AWS (ECS, EC2, RDS, ALB, WAF), GCP, Terraform, Docker, GitLab CI/CD</dd>
+        <dt>Observability</dt><dd>Grafana / Loki, Prometheus, CloudWatch</dd>
+        <dt>AI tooling</dt><dd>Claude Code (custom skills, CLAUDE.md, parallel agents), Cursor</dd>
+      </dl>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2>Contact</h2>
+      <h3 style="font-size:28px;letter-spacing:-.01em">Let's build something.</h3>
+      <p>I'm open to backend and full-stack roles. Remote or Pune. The quickest way to reach me is email.</p>
+      <div class="cta">
+        <a class="btn primary" href="mailto:dn.reddy@hotmail.com">dn.reddy@hotmail.com</a>
+        <a class="btn" href="https://www.linkedin.com/in/dnikhil-reddy/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap mono">© <span id="year">2026</span> D Nikhil Reddy · Pune, India</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('theme').addEventListener('click', () => {
+      const root = document.documentElement;
+      const dark = root.dataset.theme
+        ? root.dataset.theme === 'dark'
+        : matchMedia('(prefers-color-scheme: dark)').matches;
+      root.dataset.theme = dark ? 'light' : 'dark';
+      try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+    });
+  </script>
+</body>
+</html>
