@@ -114,6 +114,17 @@
       border-radius: 6px; background: var(--chip); color: var(--muted);
     }
 
+    .flagship {
+      background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent);
+      border-radius: 14px; padding: 26px;
+    }
+    .flagship .eyebrow { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+    .flagship h3 { font-size: 24px; letter-spacing: -.01em; }
+    .flagship h3 small { color: var(--muted); font-weight: 400; font-size: 15px; }
+    .flagship p { color: var(--muted); margin: 10px 0 0; max-width: 680px; }
+    .flagship ul { margin: 16px 0 18px 18px; color: var(--muted); }
+    .flagship li { margin: 7px 0; }
+    .flagship li b { color: var(--text); font-weight: 600; }
     .skills { display: grid; grid-template-columns: 180px 1fr; gap: 12px 20px; }
     .skills dt { color: var(--muted); font-size: 14px; padding-top: 3px; }
     @media (max-width: 640px) { .skills { grid-template-columns: 1fr; gap: 4px; } .skills dd { margin-bottom: 12px; } }
@@ -137,6 +148,7 @@
     <div class="wrap">
       <a class="brand mono" href="#top">n1ght<span>-</span>k1ng</a>
       <nav class="links">
+        <a href="#dwara">Dwara</a>
         <a href="#experience">Experience</a>
         <a class="opt" href="#projects">Projects</a>
         <a class="opt" href="#security">Security</a>
@@ -171,6 +183,29 @@
       <div class="stat"><b>137s → 43ms</b><span>endpoint latency fix</span></div>
       <div class="stat"><b>50K+/day</b><span>Kafka messages, 99.5% accepted</span></div>
     </div>
+
+    <section id="dwara">
+      <h2>Flagship project</h2>
+      <article class="flagship">
+        <p class="eyebrow mono">pre-1.0 · in development · AGPL-3.0</p>
+        <h3>Dwara <small>· policy-controlled SSH access for AI coding agents</small></h3>
+        <p>
+          Give an agent a shell on your servers and it will eventually do something you didn't sanction.
+          Dwara is an MCP server that sits between the agent and your hosts and treats the model as
+          <b>untrusted</b>, so every guarantee lives in code rather than in the prompt.
+          Named after the <i>Dwarapala</i>, the guardians at the doors of Indian temples.
+        </p>
+        <ul>
+          <li><b>17 typed tools and no shell.</b> Each tool has a zod schema and is named by risk class. There's no <code>run_command</code>, and commands are argv arrays escaped element by element.</li>
+          <li><b>Policy decides, not the model.</b> Rules are set per host and per risk class (<code>deny &gt; require_approval &gt; allow</code>), and destructive actions are refused in code.</li>
+          <li><b>Transactional changes.</b> Each change takes a snapshot, acts, checks that the fix actually held, and rolls back automatically if it didn't.</li>
+          <li><b>Humans approve; the agent can't.</b> Approvals are single-use and bound to the exact action. 14 routes to self-approval are enumerated in the threat model, each with a test that closes it.</li>
+          <li><b>Server output is data, never instructions.</b> Results are wrapped as untrusted, with detectors for injected instructions. Every action, refusals included, goes to a hash-chained audit log.</li>
+          <li><b>An open benchmark.</b> 21 scenarios on a Docker lab: real faults, planted prompt injections, and unfixable cases where the right outcome is an honest handover. Runs are scored from the audit log, not the agent's account of what it did.</li>
+        </ul>
+        <div class="tags"><span class="tag">TypeScript</span><span class="tag">MCP</span><span class="tag">Node.js</span><span class="tag">zod</span><span class="tag">Vitest</span><span class="tag">Docker</span><span class="tag">SSH</span></div>
+      </article>
+    </section>
 
     <section id="experience">
       <h2>Experience</h2>
@@ -288,7 +323,7 @@
         <dt>Data</dt><dd>PostgreSQL, MySQL, MongoDB, Redis, MeiliSearch, Kafka, Debezium CDC</dd>
         <dt>Cloud &amp; infra</dt><dd>AWS (ECS, EC2, RDS, ALB, WAF), GCP, Terraform, Docker, GitLab CI/CD</dd>
         <dt>Observability</dt><dd>Grafana / Loki, Prometheus, CloudWatch</dd>
-        <dt>AI tooling</dt><dd>Claude Code (custom skills, CLAUDE.md, parallel agents), Cursor</dd>
+        <dt>AI tooling</dt><dd>MCP servers, Claude Code (custom skills, CLAUDE.md, parallel agents), Cursor</dd>
       </dl>
     </section>
 
